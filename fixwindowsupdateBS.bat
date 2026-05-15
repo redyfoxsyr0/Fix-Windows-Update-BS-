@@ -39,6 +39,10 @@ net start cryptsvc
 net start bits
 net start wuauserv
 net start appidsvc
+echo Repairing Windows component store...
+DISM /Online /Cleanup-Image /RestoreHealth
+echo Running system file check...
+sfc /scannow
 echo Done. Restarting your PC...
 timeout /t 2 /nobreak >nul
 shutdown /r /f /t 0
