@@ -26,7 +26,17 @@ icacls "%windir%\System32\catroot2" /grant administrators:F /t >nul 2>&1
 echo Renaming update folders...
 ren "%windir%\SoftwareDistribution" SoftwareDistribution.old
 ren "%windir%\System32\catroot2" catroot2.old
+echo Setting Delivery Optimization bypass mode...
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" ^
+/v DODownloadMode ^
+/t REG_DWORD ^
+/d 100 ^
+/f >nul 2>&1
+
 echo Restarting services...
+
+echo Restarting services...
+
 net start cryptsvc
 net start bits
 net start wuauserv
