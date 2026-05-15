@@ -32,11 +32,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" ^
 /t REG_DWORD ^
 /d 100 ^
 /f >nul 2>&1
-
 echo Restarting services...
-
-echo Restarting services...
-
 net start cryptsvc
 net start bits
 net start wuauserv
