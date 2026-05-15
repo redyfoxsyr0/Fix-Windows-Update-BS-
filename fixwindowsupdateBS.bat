@@ -20,13 +20,18 @@ net stop appidsvc /y
 
 timeout /t 2 /nobreak >nul
 
-echo Renaming update folders...
+echo Removing old backup folders...
+rd /s /q "%windir%\SoftwareDistribution.old" >nul 2>&1
+rd /s /q "%windir%\System32\catroot2.old" >nul 2>&1
+
+echo Taking ownership...
 takeown /f "%windir%\SoftwareDistribution" /r /d y >nul 2>&1
 icacls "%windir%\SoftwareDistribution" /grant administrators:F /t >nul 2>&1
 
 takeown /f "%windir%\System32\catroot2" /r /d y >nul 2>&1
 icacls "%windir%\System32\catroot2" /grant administrators:F /t >nul 2>&1
 
+echo Renaming update folders...
 ren "%windir%\SoftwareDistribution" SoftwareDistribution.old
 ren "%windir%\System32\catroot2" catroot2.old
 
