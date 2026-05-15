@@ -1,5 +1,5 @@
 @echo off
-title Aggressive Windows Update Reset
+title Windows Update Repair Fuck you windows ;)
 echo Killing update processes first...
 taskkill /f /im TiWorker.exe >nul 2>&1
 taskkill /f /im TrustedInstaller.exe >nul 2>&1
