@@ -36,5 +36,5 @@ net start bits
 net start wuauserv
 net start appidsvc
 
-echo Done.
+echo Done. Restart your PC!
 pause
