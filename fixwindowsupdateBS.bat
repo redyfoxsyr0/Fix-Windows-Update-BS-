@@ -32,7 +32,8 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" ^
 /t REG_DWORD ^
 /d 100 ^
 /f >nul 2>&1
-:: Clear the Delivery Optimization queueecho Clearing Delivery Optimization cache...del /q /f "%ALLUSERSPROFILE%\Application Data\Microsoft\Network\Downloader\qmgr*.dat" 2>nul
+:: Clear the Delivery Optimization queueecho Clearing Delivery Optimization cache...
+del /q /f "%ALLUSERSPROFILE%\Application Data\Microsoft\Network\Downloader\qmgr*.dat" 2>nul
 echo Restarting services...
 net start cryptsvc
 net start bits
